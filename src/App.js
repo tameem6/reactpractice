@@ -4,24 +4,30 @@ import AddHero from './AddHero.js';
 
 class App extends React.Component {
      state = {
-      heroes : [
-        {name : 'Rylai', attack : 'Ranged', position : 5, id : 1},
-        {name : 'Stygwyr', attack : 'Melee', position : 2, id : 2 },
-        {name : 'Trax', attack : 'Ranged', position : 1, id : 3}
-      ]
+      count : 0,
+      heroes : []
     }
     addHero = (hero) => {
-      hero.id = Math.random();
+      hero.id = this.state.count+1;
       let newHeroes = [...this.state.heroes, hero];
       this.setState({
-        heroes : newHeroes
+        heroes : newHeroes,
+        count : this.state.count+1
       });
+    }
+    deleteHero = (id) =>{
+      let newHeroes = this.state.heroes.filter(hero => {
+          return hero.id !== id
+      });
+      this.setState({
+        heroes : newHeroes
+      })
     }
   render()
   {
     return (
       <div className="App">
-          <Heroes heroes= {this.state.heroes} />
+          <Heroes heroes= {this.state.heroes} deleteHero = {this.deleteHero} />
           <AddHero addHero = {this.addHero}/>
       </div>
     );
