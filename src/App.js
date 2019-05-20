@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Heroes from './Heroes.js';
+import AddHero from './AddHero.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+     state = {
+      heroes : [
+        {name : 'Rylai', attack : 'Ranged', position : 5, id : 1},
+        {name : 'Stygwyr', attack : 'Melee', position : 2, id : 2 },
+        {name : 'Trax', attack : 'Ranged', position : 1, id : 3}
+      ]
+    }
+    addHero = (hero) => {
+      hero.id = Math.random();
+      let newHeroes = [...this.state.heroes, hero];
+      this.setState({
+        heroes : newHeroes
+      });
+    }
+  render()
+  {
+    return (
+      <div className="App">
+          <Heroes heroes= {this.state.heroes} />
+          <AddHero addHero = {this.addHero}/>
+      </div>
+    );
+  }
 }
 
 export default App;
