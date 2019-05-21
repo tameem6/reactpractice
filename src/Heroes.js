@@ -3,19 +3,28 @@ import React from 'react';
 const Heroes = ({heroes, deleteHero}) => {    
         const heroList = heroes.map( hero => {
             return (
-                    <li className="heroes" key = {hero.id}>
-                        <div>Name : {hero.name}</div>
-                        <div>Attack : {hero.attack}</div>
-                        <div>Position : {hero.position}</div>
-                        <button onClick = {() => {deleteHero(hero.id)}}>Delete Hero</button> 
-                    </li>
+                    <tr className="heroes" key = {hero.id}>
+                        <td>{hero.name}</td>
+                        <td>{hero.attack}</td>
+                        <td>{hero.position}</td>
+                        <td><button className="btn btn-outline-danger" onClick = {() => {deleteHero(hero.id)}}>Delete Hero</button></td>
+                    </tr>
                 )
                 
         });
         return (
-            <ul className="hero-list">
-                {heroList}
-            </ul>    
+            <table className="heroTable table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Attack</th>
+                        <th>Position</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        {heroList}
+                    </tbody>
+            </table> 
         );
 }
 

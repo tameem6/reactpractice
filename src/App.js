@@ -23,10 +23,14 @@ class App extends React.Component {
         heroes : newHeroes
       })
     }
-  render()
+    componentDiMagna()
+    {
+      console.log('Component mounted');    
+    }
+      render()
   {
     return (
-      <div className="App">
+      <div className="App container">
           <Heroes heroes= {this.state.heroes} deleteHero = {this.deleteHero} />
           <AddHero addHero = {this.addHero}/>
       </div>
