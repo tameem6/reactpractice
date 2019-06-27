@@ -1,6 +1,6 @@
-##Pracice Site
+## Practice Site
 
-####To Run This On Your Local Machine: 
+#### To Run This On Your Local Machine: 
 Clone it, then run 
 ```
 npm install
