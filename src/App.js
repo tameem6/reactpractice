@@ -9,8 +9,12 @@ class App extends React.Component {
     }
     addHero = (hero) => {
       
-      hero.id = this.state.count+1;
-      let newHeroes = [...this.state.heroes, hero];
+      console.log(this.state.heroes);
+      hero.id = this.state.heroes.length+1;
+      console.log(hero);
+      let newHeroes = this.state.heroes;
+      newHeroes.push(hero)
+      console.log(newHeroes);
       this.setState({
         heroes : newHeroes,
         count : this.state.count+1

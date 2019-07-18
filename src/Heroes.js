@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Heroes = ({heroes, deleteHero, handleClick}) => {    
-        const heroList = heroes.map( hero => {
+        const heroList = heroes.map( (hero,idx) => {
             return (
-                    <tr className="heroes" key = {hero.id}>
+                    <tr className="heroes" key = {idx}>
                         <td>{hero.name}</td>
                         <td>{hero.attack}</td>
                         <td>{hero.position}</td>
